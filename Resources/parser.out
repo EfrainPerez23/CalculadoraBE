@@ -1,0 +1,712 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    IGUAL
+    MINUSMINUS
+    PLUSPLUS
+
+Grammar
+
+Rule 0     S' -> declaracion
+Rule 1     declaracion -> IDENTIFICADOR ASIGNAR expresion
+Rule 2     declaracion -> expresion
+Rule 3     expresion -> expresion SUMA expresion
+Rule 4     expresion -> expresion RESTA expresion
+Rule 5     expresion -> expresion MULT expresion
+Rule 6     expresion -> expresion DIV expresion
+Rule 7     expresion -> expresion POTENCIA expresion
+Rule 8     expresion -> expresion MODULO expresion
+Rule 9     expresion -> sin PARIZQ expresion PARDER
+Rule 10    expresion -> cos PARIZQ expresion PARDER
+Rule 11    expresion -> tan PARIZQ expresion PARDER
+Rule 12    expresion -> PARIZQ expresion PARDER
+Rule 13    expresion -> ENTERO
+
+Terminals, with rules where they appear
+
+ASIGNAR              : 1
+DIV                  : 6
+ENTERO               : 13
+IDENTIFICADOR        : 1
+IGUAL                : 
+MINUSMINUS           : 
+MODULO               : 8
+MULT                 : 5
+PARDER               : 9 10 11 12
+PARIZQ               : 9 10 11 12
+PLUSPLUS             : 
+POTENCIA             : 7
+RESTA                : 4
+SUMA                 : 3
+cos                  : 10
+error                : 
+sin                  : 9
+tan                  : 11
+
+Nonterminals, with rules where they appear
+
+declaracion          : 0
+expresion            : 1 2 3 3 4 4 5 5 6 6 7 7 8 8 9 10 11 12
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . declaracion
+    (1) declaracion -> . IDENTIFICADOR ASIGNAR expresion
+    (2) declaracion -> . expresion
+    (3) expresion -> . expresion SUMA expresion
+    (4) expresion -> . expresion RESTA expresion
+    (5) expresion -> . expresion MULT expresion
+    (6) expresion -> . expresion DIV expresion
+    (7) expresion -> . expresion POTENCIA expresion
+    (8) expresion -> . expresion MODULO expresion
+    (9) expresion -> . sin PARIZQ expresion PARDER
+    (10) expresion -> . cos PARIZQ expresion PARDER
+    (11) expresion -> . tan PARIZQ expresion PARDER
+    (12) expresion -> . PARIZQ expresion PARDER
+    (13) expresion -> . ENTERO
+
+    IDENTIFICADOR   shift and go to state 2
+    sin             shift and go to state 4
+    cos             shift and go to state 6
+    tan             shift and go to state 7
+    PARIZQ          shift and go to state 5
+    ENTERO          shift and go to state 8
+
+    declaracion                    shift and go to state 1
+    expresion                      shift and go to state 3
+
+state 1
+
+    (0) S' -> declaracion .
+
+
+
+state 2
+
+    (1) declaracion -> IDENTIFICADOR . ASIGNAR expresion
+
+    ASIGNAR         shift and go to state 9
+
+
+state 3
+
+    (2) declaracion -> expresion .
+    (3) expresion -> expresion . SUMA expresion
+    (4) expresion -> expresion . RESTA expresion
+    (5) expresion -> expresion . MULT expresion
+    (6) expresion -> expresion . DIV expresion
+    (7) expresion -> expresion . POTENCIA expresion
+    (8) expresion -> expresion . MODULO expresion
+
+    $end            reduce using rule 2 (declaracion -> expresion .)
+    SUMA            shift and go to state 10
+    RESTA           shift and go to state 11
+    MULT            shift and go to state 12
+    DIV             shift and go to state 13
+    POTENCIA        shift and go to state 14
+    MODULO          shift and go to state 15
+
+
+state 4
+
+    (9) expresion -> sin . PARIZQ expresion PARDER
+
+    PARIZQ          shift and go to state 16
+
+
+state 5
+
+    (12) expresion -> PARIZQ . expresion PARDER
+    (3) expresion -> . expresion SUMA expresion
+    (4) expresion -> . expresion RESTA expresion
+    (5) expresion -> . expresion MULT expresion
+    (6) expresion -> . expresion DIV expresion
+    (7) expresion -> . expresion POTENCIA expresion
+    (8) expresion -> . expresion MODULO expresion
+    (9) expresion -> . sin PARIZQ expresion PARDER
+    (10) expresion -> . cos PARIZQ expresion PARDER
+    (11) expresion -> . tan PARIZQ expresion PARDER
+    (12) expresion -> . PARIZQ expresion PARDER
+    (13) expresion -> . ENTERO
+
+    sin             shift and go to state 4
+    cos             shift and go to state 6
+    tan             shift and go to state 7
+    PARIZQ          shift and go to state 5
+    ENTERO          shift and go to state 8
+
+    expresion                      shift and go to state 17
+
+state 6
+
+    (10) expresion -> cos . PARIZQ expresion PARDER
+
+    PARIZQ          shift and go to state 18
+
+
+state 7
+
+    (11) expresion -> tan . PARIZQ expresion PARDER
+
+    PARIZQ          shift and go to state 19
+
+
+state 8
+
+    (13) expresion -> ENTERO .
+
+    SUMA            reduce using rule 13 (expresion -> ENTERO .)
+    RESTA           reduce using rule 13 (expresion -> ENTERO .)
+    MULT            reduce using rule 13 (expresion -> ENTERO .)
+    DIV             reduce using rule 13 (expresion -> ENTERO .)
+    POTENCIA        reduce using rule 13 (expresion -> ENTERO .)
+    MODULO          reduce using rule 13 (expresion -> ENTERO .)
+    $end            reduce using rule 13 (expresion -> ENTERO .)
+    PARDER          reduce using rule 13 (expresion -> ENTERO .)
+
+
+state 9
+
+    (1) declaracion -> IDENTIFICADOR ASIGNAR . expresion
+    (3) expresion -> . expresion SUMA expresion
+    (4) expresion -> . expresion RESTA expresion
+    (5) expresion -> . expresion MULT expresion
+    (6) expresion -> . expresion DIV expresion
+    (7) expresion -> . expresion POTENCIA expresion
+    (8) expresion -> . expresion MODULO expresion
+    (9) expresion -> . sin PARIZQ expresion PARDER
+    (10) expresion -> . cos PARIZQ expresion PARDER
+    (11) expresion -> . tan PARIZQ expresion PARDER
+    (12) expresion -> . PARIZQ expresion PARDER
+    (13) expresion -> . ENTERO
+
+    sin             shift and go to state 4
+    cos             shift and go to state 6
+    tan             shift and go to state 7
+    PARIZQ          shift and go to state 5
+    ENTERO          shift and go to state 8
+
+    expresion                      shift and go to state 20
+
+state 10
+
+    (3) expresion -> expresion SUMA . expresion
+    (3) expresion -> . expresion SUMA expresion
+    (4) expresion -> . expresion RESTA expresion
+    (5) expresion -> . expresion MULT expresion
+    (6) expresion -> . expresion DIV expresion
+    (7) expresion -> . expresion POTENCIA expresion
+    (8) expresion -> . expresion MODULO expresion
+    (9) expresion -> . sin PARIZQ expresion PARDER
+    (10) expresion -> . cos PARIZQ expresion PARDER
+    (11) expresion -> . tan PARIZQ expresion PARDER
+    (12) expresion -> . PARIZQ expresion PARDER
+    (13) expresion -> . ENTERO
+
+    sin             shift and go to state 4
+    cos             shift and go to state 6
+    tan             shift and go to state 7
+    PARIZQ          shift and go to state 5
+    ENTERO          shift and go to state 8
+
+    expresion                      shift and go to state 21
+
+state 11
+
+    (4) expresion -> expresion RESTA . expresion
+    (3) expresion -> . expresion SUMA expresion
+    (4) expresion -> . expresion RESTA expresion
+    (5) expresion -> . expresion MULT expresion
+    (6) expresion -> . expresion DIV expresion
+    (7) expresion -> . expresion POTENCIA expresion
+    (8) expresion -> . expresion MODULO expresion
+    (9) expresion -> . sin PARIZQ expresion PARDER
+    (10) expresion -> . cos PARIZQ expresion PARDER
+    (11) expresion -> . tan PARIZQ expresion PARDER
+    (12) expresion -> . PARIZQ expresion PARDER
+    (13) expresion -> . ENTERO
+
+    sin             shift and go to state 4
+    cos             shift and go to state 6
+    tan             shift and go to state 7
+    PARIZQ          shift and go to state 5
+    ENTERO          shift and go to state 8
+
+    expresion                      shift and go to state 22
+
+state 12
+
+    (5) expresion -> expresion MULT . expresion
+    (3) expresion -> . expresion SUMA expresion
+    (4) expresion -> . expresion RESTA expresion
+    (5) expresion -> . expresion MULT expresion
+    (6) expresion -> . expresion DIV expresion
+    (7) expresion -> . expresion POTENCIA expresion
+    (8) expresion -> . expresion MODULO expresion
+    (9) expresion -> . sin PARIZQ expresion PARDER
+    (10) expresion -> . cos PARIZQ expresion PARDER
+    (11) expresion -> . tan PARIZQ expresion PARDER
+    (12) expresion -> . PARIZQ expresion PARDER
+    (13) expresion -> . ENTERO
+
+    sin             shift and go to state 4
+    cos             shift and go to state 6
+    tan             shift and go to state 7
+    PARIZQ          shift and go to state 5
+    ENTERO          shift and go to state 8
+
+    expresion                      shift and go to state 23
+
+state 13
+
+    (6) expresion -> expresion DIV . expresion
+    (3) expresion -> . expresion SUMA expresion
+    (4) expresion -> . expresion RESTA expresion
+    (5) expresion -> . expresion MULT expresion
+    (6) expresion -> . expresion DIV expresion
+    (7) expresion -> . expresion POTENCIA expresion
+    (8) expresion -> . expresion MODULO expresion
+    (9) expresion -> . sin PARIZQ expresion PARDER
+    (10) expresion -> . cos PARIZQ expresion PARDER
+    (11) expresion -> . tan PARIZQ expresion PARDER
+    (12) expresion -> . PARIZQ expresion PARDER
+    (13) expresion -> . ENTERO
+
+    sin             shift and go to state 4
+    cos             shift and go to state 6
+    tan             shift and go to state 7
+    PARIZQ          shift and go to state 5
+    ENTERO          shift and go to state 8
+
+    expresion                      shift and go to state 24
+
+state 14
+
+    (7) expresion -> expresion POTENCIA . expresion
+    (3) expresion -> . expresion SUMA expresion
+    (4) expresion -> . expresion RESTA expresion
+    (5) expresion -> . expresion MULT expresion
+    (6) expresion -> . expresion DIV expresion
+    (7) expresion -> . expresion POTENCIA expresion
+    (8) expresion -> . expresion MODULO expresion
+    (9) expresion -> . sin PARIZQ expresion PARDER
+    (10) expresion -> . cos PARIZQ expresion PARDER
+    (11) expresion -> . tan PARIZQ expresion PARDER
+    (12) expresion -> . PARIZQ expresion PARDER
+    (13) expresion -> . ENTERO
+
+    sin             shift and go to state 4
+    cos             shift and go to state 6
+    tan             shift and go to state 7
+    PARIZQ          shift and go to state 5
+    ENTERO          shift and go to state 8
+
+    expresion                      shift and go to state 25
+
+state 15
+
+    (8) expresion -> expresion MODULO . expresion
+    (3) expresion -> . expresion SUMA expresion
+    (4) expresion -> . expresion RESTA expresion
+    (5) expresion -> . expresion MULT expresion
+    (6) expresion -> . expresion DIV expresion
+    (7) expresion -> . expresion POTENCIA expresion
+    (8) expresion -> . expresion MODULO expresion
+    (9) expresion -> . sin PARIZQ expresion PARDER
+    (10) expresion -> . cos PARIZQ expresion PARDER
+    (11) expresion -> . tan PARIZQ expresion PARDER
+    (12) expresion -> . PARIZQ expresion PARDER
+    (13) expresion -> . ENTERO
+
+    sin             shift and go to state 4
+    cos             shift and go to state 6
+    tan             shift and go to state 7
+    PARIZQ          shift and go to state 5
+    ENTERO          shift and go to state 8
+
+    expresion                      shift and go to state 26
+
+state 16
+
+    (9) expresion -> sin PARIZQ . expresion PARDER
+    (3) expresion -> . expresion SUMA expresion
+    (4) expresion -> . expresion RESTA expresion
+    (5) expresion -> . expresion MULT expresion
+    (6) expresion -> . expresion DIV expresion
+    (7) expresion -> . expresion POTENCIA expresion
+    (8) expresion -> . expresion MODULO expresion
+    (9) expresion -> . sin PARIZQ expresion PARDER
+    (10) expresion -> . cos PARIZQ expresion PARDER
+    (11) expresion -> . tan PARIZQ expresion PARDER
+    (12) expresion -> . PARIZQ expresion PARDER
+    (13) expresion -> . ENTERO
+
+    sin             shift and go to state 4
+    cos             shift and go to state 6
+    tan             shift and go to state 7
+    PARIZQ          shift and go to state 5
+    ENTERO          shift and go to state 8
+
+    expresion                      shift and go to state 27
+
+state 17
+
+    (12) expresion -> PARIZQ expresion . PARDER
+    (3) expresion -> expresion . SUMA expresion
+    (4) expresion -> expresion . RESTA expresion
+    (5) expresion -> expresion . MULT expresion
+    (6) expresion -> expresion . DIV expresion
+    (7) expresion -> expresion . POTENCIA expresion
+    (8) expresion -> expresion . MODULO expresion
+
+    PARDER          shift and go to state 28
+    SUMA            shift and go to state 10
+    RESTA           shift and go to state 11
+    MULT            shift and go to state 12
+    DIV             shift and go to state 13
+    POTENCIA        shift and go to state 14
+    MODULO          shift and go to state 15
+
+
+state 18
+
+    (10) expresion -> cos PARIZQ . expresion PARDER
+    (3) expresion -> . expresion SUMA expresion
+    (4) expresion -> . expresion RESTA expresion
+    (5) expresion -> . expresion MULT expresion
+    (6) expresion -> . expresion DIV expresion
+    (7) expresion -> . expresion POTENCIA expresion
+    (8) expresion -> . expresion MODULO expresion
+    (9) expresion -> . sin PARIZQ expresion PARDER
+    (10) expresion -> . cos PARIZQ expresion PARDER
+    (11) expresion -> . tan PARIZQ expresion PARDER
+    (12) expresion -> . PARIZQ expresion PARDER
+    (13) expresion -> . ENTERO
+
+    sin             shift and go to state 4
+    cos             shift and go to state 6
+    tan             shift and go to state 7
+    PARIZQ          shift and go to state 5
+    ENTERO          shift and go to state 8
+
+    expresion                      shift and go to state 29
+
+state 19
+
+    (11) expresion -> tan PARIZQ . expresion PARDER
+    (3) expresion -> . expresion SUMA expresion
+    (4) expresion -> . expresion RESTA expresion
+    (5) expresion -> . expresion MULT expresion
+    (6) expresion -> . expresion DIV expresion
+    (7) expresion -> . expresion POTENCIA expresion
+    (8) expresion -> . expresion MODULO expresion
+    (9) expresion -> . sin PARIZQ expresion PARDER
+    (10) expresion -> . cos PARIZQ expresion PARDER
+    (11) expresion -> . tan PARIZQ expresion PARDER
+    (12) expresion -> . PARIZQ expresion PARDER
+    (13) expresion -> . ENTERO
+
+    sin             shift and go to state 4
+    cos             shift and go to state 6
+    tan             shift and go to state 7
+    PARIZQ          shift and go to state 5
+    ENTERO          shift and go to state 8
+
+    expresion                      shift and go to state 30
+
+state 20
+
+    (1) declaracion -> IDENTIFICADOR ASIGNAR expresion .
+    (3) expresion -> expresion . SUMA expresion
+    (4) expresion -> expresion . RESTA expresion
+    (5) expresion -> expresion . MULT expresion
+    (6) expresion -> expresion . DIV expresion
+    (7) expresion -> expresion . POTENCIA expresion
+    (8) expresion -> expresion . MODULO expresion
+
+    $end            reduce using rule 1 (declaracion -> IDENTIFICADOR ASIGNAR expresion .)
+    SUMA            shift and go to state 10
+    RESTA           shift and go to state 11
+    MULT            shift and go to state 12
+    DIV             shift and go to state 13
+    POTENCIA        shift and go to state 14
+    MODULO          shift and go to state 15
+
+
+state 21
+
+    (3) expresion -> expresion SUMA expresion .
+    (3) expresion -> expresion . SUMA expresion
+    (4) expresion -> expresion . RESTA expresion
+    (5) expresion -> expresion . MULT expresion
+    (6) expresion -> expresion . DIV expresion
+    (7) expresion -> expresion . POTENCIA expresion
+    (8) expresion -> expresion . MODULO expresion
+
+    SUMA            reduce using rule 3 (expresion -> expresion SUMA expresion .)
+    RESTA           reduce using rule 3 (expresion -> expresion SUMA expresion .)
+    $end            reduce using rule 3 (expresion -> expresion SUMA expresion .)
+    PARDER          reduce using rule 3 (expresion -> expresion SUMA expresion .)
+    MULT            shift and go to state 12
+    DIV             shift and go to state 13
+    POTENCIA        shift and go to state 14
+    MODULO          shift and go to state 15
+
+  ! MULT            [ reduce using rule 3 (expresion -> expresion SUMA expresion .) ]
+  ! DIV             [ reduce using rule 3 (expresion -> expresion SUMA expresion .) ]
+  ! POTENCIA        [ reduce using rule 3 (expresion -> expresion SUMA expresion .) ]
+  ! MODULO          [ reduce using rule 3 (expresion -> expresion SUMA expresion .) ]
+  ! SUMA            [ shift and go to state 10 ]
+  ! RESTA           [ shift and go to state 11 ]
+
+
+state 22
+
+    (4) expresion -> expresion RESTA expresion .
+    (3) expresion -> expresion . SUMA expresion
+    (4) expresion -> expresion . RESTA expresion
+    (5) expresion -> expresion . MULT expresion
+    (6) expresion -> expresion . DIV expresion
+    (7) expresion -> expresion . POTENCIA expresion
+    (8) expresion -> expresion . MODULO expresion
+
+    SUMA            reduce using rule 4 (expresion -> expresion RESTA expresion .)
+    RESTA           reduce using rule 4 (expresion -> expresion RESTA expresion .)
+    $end            reduce using rule 4 (expresion -> expresion RESTA expresion .)
+    PARDER          reduce using rule 4 (expresion -> expresion RESTA expresion .)
+    MULT            shift and go to state 12
+    DIV             shift and go to state 13
+    POTENCIA        shift and go to state 14
+    MODULO          shift and go to state 15
+
+  ! MULT            [ reduce using rule 4 (expresion -> expresion RESTA expresion .) ]
+  ! DIV             [ reduce using rule 4 (expresion -> expresion RESTA expresion .) ]
+  ! POTENCIA        [ reduce using rule 4 (expresion -> expresion RESTA expresion .) ]
+  ! MODULO          [ reduce using rule 4 (expresion -> expresion RESTA expresion .) ]
+  ! SUMA            [ shift and go to state 10 ]
+  ! RESTA           [ shift and go to state 11 ]
+
+
+state 23
+
+    (5) expresion -> expresion MULT expresion .
+    (3) expresion -> expresion . SUMA expresion
+    (4) expresion -> expresion . RESTA expresion
+    (5) expresion -> expresion . MULT expresion
+    (6) expresion -> expresion . DIV expresion
+    (7) expresion -> expresion . POTENCIA expresion
+    (8) expresion -> expresion . MODULO expresion
+
+    SUMA            reduce using rule 5 (expresion -> expresion MULT expresion .)
+    RESTA           reduce using rule 5 (expresion -> expresion MULT expresion .)
+    MULT            reduce using rule 5 (expresion -> expresion MULT expresion .)
+    DIV             reduce using rule 5 (expresion -> expresion MULT expresion .)
+    $end            reduce using rule 5 (expresion -> expresion MULT expresion .)
+    PARDER          reduce using rule 5 (expresion -> expresion MULT expresion .)
+    POTENCIA        shift and go to state 14
+    MODULO          shift and go to state 15
+
+  ! POTENCIA        [ reduce using rule 5 (expresion -> expresion MULT expresion .) ]
+  ! MODULO          [ reduce using rule 5 (expresion -> expresion MULT expresion .) ]
+  ! SUMA            [ shift and go to state 10 ]
+  ! RESTA           [ shift and go to state 11 ]
+  ! MULT            [ shift and go to state 12 ]
+  ! DIV             [ shift and go to state 13 ]
+
+
+state 24
+
+    (6) expresion -> expresion DIV expresion .
+    (3) expresion -> expresion . SUMA expresion
+    (4) expresion -> expresion . RESTA expresion
+    (5) expresion -> expresion . MULT expresion
+    (6) expresion -> expresion . DIV expresion
+    (7) expresion -> expresion . POTENCIA expresion
+    (8) expresion -> expresion . MODULO expresion
+
+    SUMA            reduce using rule 6 (expresion -> expresion DIV expresion .)
+    RESTA           reduce using rule 6 (expresion -> expresion DIV expresion .)
+    MULT            reduce using rule 6 (expresion -> expresion DIV expresion .)
+    DIV             reduce using rule 6 (expresion -> expresion DIV expresion .)
+    $end            reduce using rule 6 (expresion -> expresion DIV expresion .)
+    PARDER          reduce using rule 6 (expresion -> expresion DIV expresion .)
+    POTENCIA        shift and go to state 14
+    MODULO          shift and go to state 15
+
+  ! POTENCIA        [ reduce using rule 6 (expresion -> expresion DIV expresion .) ]
+  ! MODULO          [ reduce using rule 6 (expresion -> expresion DIV expresion .) ]
+  ! SUMA            [ shift and go to state 10 ]
+  ! RESTA           [ shift and go to state 11 ]
+  ! MULT            [ shift and go to state 12 ]
+  ! DIV             [ shift and go to state 13 ]
+
+
+state 25
+
+    (7) expresion -> expresion POTENCIA expresion .
+    (3) expresion -> expresion . SUMA expresion
+    (4) expresion -> expresion . RESTA expresion
+    (5) expresion -> expresion . MULT expresion
+    (6) expresion -> expresion . DIV expresion
+    (7) expresion -> expresion . POTENCIA expresion
+    (8) expresion -> expresion . MODULO expresion
+
+    SUMA            reduce using rule 7 (expresion -> expresion POTENCIA expresion .)
+    RESTA           reduce using rule 7 (expresion -> expresion POTENCIA expresion .)
+    MULT            reduce using rule 7 (expresion -> expresion POTENCIA expresion .)
+    DIV             reduce using rule 7 (expresion -> expresion POTENCIA expresion .)
+    POTENCIA        reduce using rule 7 (expresion -> expresion POTENCIA expresion .)
+    MODULO          reduce using rule 7 (expresion -> expresion POTENCIA expresion .)
+    $end            reduce using rule 7 (expresion -> expresion POTENCIA expresion .)
+    PARDER          reduce using rule 7 (expresion -> expresion POTENCIA expresion .)
+
+  ! SUMA            [ shift and go to state 10 ]
+  ! RESTA           [ shift and go to state 11 ]
+  ! MULT            [ shift and go to state 12 ]
+  ! DIV             [ shift and go to state 13 ]
+  ! POTENCIA        [ shift and go to state 14 ]
+  ! MODULO          [ shift and go to state 15 ]
+
+
+state 26
+
+    (8) expresion -> expresion MODULO expresion .
+    (3) expresion -> expresion . SUMA expresion
+    (4) expresion -> expresion . RESTA expresion
+    (5) expresion -> expresion . MULT expresion
+    (6) expresion -> expresion . DIV expresion
+    (7) expresion -> expresion . POTENCIA expresion
+    (8) expresion -> expresion . MODULO expresion
+
+    SUMA            reduce using rule 8 (expresion -> expresion MODULO expresion .)
+    RESTA           reduce using rule 8 (expresion -> expresion MODULO expresion .)
+    MULT            reduce using rule 8 (expresion -> expresion MODULO expresion .)
+    DIV             reduce using rule 8 (expresion -> expresion MODULO expresion .)
+    POTENCIA        reduce using rule 8 (expresion -> expresion MODULO expresion .)
+    MODULO          reduce using rule 8 (expresion -> expresion MODULO expresion .)
+    $end            reduce using rule 8 (expresion -> expresion MODULO expresion .)
+    PARDER          reduce using rule 8 (expresion -> expresion MODULO expresion .)
+
+  ! SUMA            [ shift and go to state 10 ]
+  ! RESTA           [ shift and go to state 11 ]
+  ! MULT            [ shift and go to state 12 ]
+  ! DIV             [ shift and go to state 13 ]
+  ! POTENCIA        [ shift and go to state 14 ]
+  ! MODULO          [ shift and go to state 15 ]
+
+
+state 27
+
+    (9) expresion -> sin PARIZQ expresion . PARDER
+    (3) expresion -> expresion . SUMA expresion
+    (4) expresion -> expresion . RESTA expresion
+    (5) expresion -> expresion . MULT expresion
+    (6) expresion -> expresion . DIV expresion
+    (7) expresion -> expresion . POTENCIA expresion
+    (8) expresion -> expresion . MODULO expresion
+
+    PARDER          shift and go to state 31
+    SUMA            shift and go to state 10
+    RESTA           shift and go to state 11
+    MULT            shift and go to state 12
+    DIV             shift and go to state 13
+    POTENCIA        shift and go to state 14
+    MODULO          shift and go to state 15
+
+
+state 28
+
+    (12) expresion -> PARIZQ expresion PARDER .
+
+    SUMA            reduce using rule 12 (expresion -> PARIZQ expresion PARDER .)
+    RESTA           reduce using rule 12 (expresion -> PARIZQ expresion PARDER .)
+    MULT            reduce using rule 12 (expresion -> PARIZQ expresion PARDER .)
+    DIV             reduce using rule 12 (expresion -> PARIZQ expresion PARDER .)
+    POTENCIA        reduce using rule 12 (expresion -> PARIZQ expresion PARDER .)
+    MODULO          reduce using rule 12 (expresion -> PARIZQ expresion PARDER .)
+    $end            reduce using rule 12 (expresion -> PARIZQ expresion PARDER .)
+    PARDER          reduce using rule 12 (expresion -> PARIZQ expresion PARDER .)
+
+
+state 29
+
+    (10) expresion -> cos PARIZQ expresion . PARDER
+    (3) expresion -> expresion . SUMA expresion
+    (4) expresion -> expresion . RESTA expresion
+    (5) expresion -> expresion . MULT expresion
+    (6) expresion -> expresion . DIV expresion
+    (7) expresion -> expresion . POTENCIA expresion
+    (8) expresion -> expresion . MODULO expresion
+
+    PARDER          shift and go to state 32
+    SUMA            shift and go to state 10
+    RESTA           shift and go to state 11
+    MULT            shift and go to state 12
+    DIV             shift and go to state 13
+    POTENCIA        shift and go to state 14
+    MODULO          shift and go to state 15
+
+
+state 30
+
+    (11) expresion -> tan PARIZQ expresion . PARDER
+    (3) expresion -> expresion . SUMA expresion
+    (4) expresion -> expresion . RESTA expresion
+    (5) expresion -> expresion . MULT expresion
+    (6) expresion -> expresion . DIV expresion
+    (7) expresion -> expresion . POTENCIA expresion
+    (8) expresion -> expresion . MODULO expresion
+
+    PARDER          shift and go to state 33
+    SUMA            shift and go to state 10
+    RESTA           shift and go to state 11
+    MULT            shift and go to state 12
+    DIV             shift and go to state 13
+    POTENCIA        shift and go to state 14
+    MODULO          shift and go to state 15
+
+
+state 31
+
+    (9) expresion -> sin PARIZQ expresion PARDER .
+
+    SUMA            reduce using rule 9 (expresion -> sin PARIZQ expresion PARDER .)
+    RESTA           reduce using rule 9 (expresion -> sin PARIZQ expresion PARDER .)
+    MULT            reduce using rule 9 (expresion -> sin PARIZQ expresion PARDER .)
+    DIV             reduce using rule 9 (expresion -> sin PARIZQ expresion PARDER .)
+    POTENCIA        reduce using rule 9 (expresion -> sin PARIZQ expresion PARDER .)
+    MODULO          reduce using rule 9 (expresion -> sin PARIZQ expresion PARDER .)
+    $end            reduce using rule 9 (expresion -> sin PARIZQ expresion PARDER .)
+    PARDER          reduce using rule 9 (expresion -> sin PARIZQ expresion PARDER .)
+
+
+state 32
+
+    (10) expresion -> cos PARIZQ expresion PARDER .
+
+    SUMA            reduce using rule 10 (expresion -> cos PARIZQ expresion PARDER .)
+    RESTA           reduce using rule 10 (expresion -> cos PARIZQ expresion PARDER .)
+    MULT            reduce using rule 10 (expresion -> cos PARIZQ expresion PARDER .)
+    DIV             reduce using rule 10 (expresion -> cos PARIZQ expresion PARDER .)
+    POTENCIA        reduce using rule 10 (expresion -> cos PARIZQ expresion PARDER .)
+    MODULO          reduce using rule 10 (expresion -> cos PARIZQ expresion PARDER .)
+    $end            reduce using rule 10 (expresion -> cos PARIZQ expresion PARDER .)
+    PARDER          reduce using rule 10 (expresion -> cos PARIZQ expresion PARDER .)
+
+
+state 33
+
+    (11) expresion -> tan PARIZQ expresion PARDER .
+
+    SUMA            reduce using rule 11 (expresion -> tan PARIZQ expresion PARDER .)
+    RESTA           reduce using rule 11 (expresion -> tan PARIZQ expresion PARDER .)
+    MULT            reduce using rule 11 (expresion -> tan PARIZQ expresion PARDER .)
+    DIV             reduce using rule 11 (expresion -> tan PARIZQ expresion PARDER .)
+    POTENCIA        reduce using rule 11 (expresion -> tan PARIZQ expresion PARDER .)
+    MODULO          reduce using rule 11 (expresion -> tan PARIZQ expresion PARDER .)
+    $end            reduce using rule 11 (expresion -> tan PARIZQ expresion PARDER .)
+    PARDER          reduce using rule 11 (expresion -> tan PARIZQ expresion PARDER .)
+
