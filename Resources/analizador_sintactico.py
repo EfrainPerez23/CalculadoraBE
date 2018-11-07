@@ -93,8 +93,8 @@ def p_error(t):
     else:
         resultado = "Error sintactico {}".format(t)
         gramatic_result['errors'].append({
-        'type': str(t.type),
-        'value': str(t.value)
+        'type': 'Error sintactico',
+        'value': t
         })
         print(resultado)
     
